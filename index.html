@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Graffiti Spider Cards</title>
+  <meta name="description" content="Graffiti Spider Cards is a neon Spider Solitaire game for iPhone and iPad.">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080a0b;
+      --panel: #111517;
+      --text: #f4fbff;
+      --muted: #b9c6cb;
+      --cyan: #54f0ef;
+      --pink: #ff4ec7;
+      --lime: #b7f34f;
+      --line: rgba(255, 255, 255, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .hero {
+      min-height: 86vh;
+      display: grid;
+      align-items: end;
+      position: relative;
+      overflow: hidden;
+      background-image:
+        linear-gradient(180deg, rgba(8, 10, 11, 0.08), rgba(8, 10, 11, 0.82)),
+        url("ph/appstore/iphone_6_9_landscape_2868x1320/03_active_play.png");
+      background-position: center;
+      background-size: cover;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 24% 82%, rgba(84, 240, 239, 0.24), transparent 28%),
+                  radial-gradient(circle at 84% 18%, rgba(255, 78, 199, 0.18), transparent 30%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto 8vh;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--cyan);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      font-size: 0.82rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3rem, 9vw, 7.5rem);
+      line-height: 0.92;
+      letter-spacing: 0;
+      max-width: 920px;
+    }
+
+    .lead {
+      max-width: 680px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(17, 21, 23, 0.78);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .button.primary {
+      border-color: rgba(84, 240, 239, 0.55);
+      box-shadow: inset 0 0 0 1px rgba(255, 78, 199, 0.22);
+    }
+
+    main {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 58px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .feature {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 8px;
+      padding: 20px;
+      min-height: 150px;
+    }
+
+    .feature h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+    }
+
+    .feature p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .screenshots {
+      display: grid;
+      gap: 16px;
+    }
+
+    .screenshots img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #000;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .copy {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    footer {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 30px 0 46px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 760px) {
+      .hero {
+        min-height: 78vh;
+      }
+
+      .grid,
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 44px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Neon card puzzle</p>
+      <h1>Graffiti Spider Cards</h1>
+      <p class="lead">A neon Spider Solitaire game with classic rules, original card art, smooth controls, and focused card play.</p>
+      <div class="actions">
+        <a class="button primary" href="#screenshots">View Screenshots</a>
+        <a class="button" href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="split">
+        <div>
+          <h2>Classic Spider Solitaire, sharper table feel.</h2>
+        </div>
+        <p class="copy">Build complete King-to-Ace suit sequences, uncover hidden cards, manage empty columns, and decide when the next deal is worth the risk. Graffiti Spider Cards keeps the rules familiar while giving the table a bold graffiti-neon identity.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="grid">
+        <article class="feature">
+          <h3>Progressive Levels</h3>
+          <p>Play through 1-suit, 2-suit, and 4-suit layouts with increasing puzzle pressure.</p>
+        </article>
+        <article class="feature">
+          <h3>Local Progress</h3>
+          <p>No account required, local progress saved on device, and optional rewarded ads when requesting hints.</p>
+        </article>
+        <article class="feature">
+          <h3>Useful Tools</h3>
+          <p>Undo, hints, pause, quick restart, sound controls, and paper-style card movement feedback.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="screenshots">
+      <h2>Screenshots</h2>
+      <div class="screenshots">
+        <img src="ph/appstore/iphone_6_9_landscape_2868x1320/01_opening_board.png" alt="Graffiti Spider Cards opening board with neon card table">
+        <img src="ph/appstore/iphone_6_9_landscape_2868x1320/02_midgame_deal.png" alt="Graffiti Spider Cards midgame board after dealing cards">
+        <img src="ph/appstore/iphone_6_9_landscape_2868x1320/03_active_play.png" alt="Graffiti Spider Cards active play with moving cards">
+      </div>
+    </section>
+  </main>
+
+  <footer>
+
+    <a href="privacy.html">Privacy Policy</a>
+  </footer>
+</body>
+</html>
